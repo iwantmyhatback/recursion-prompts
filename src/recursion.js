@@ -78,7 +78,26 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  var resultArray = [];
+  if (y - x === 0 || y - x === 1){
+    return [];
+  }
+  if ( x > y ){
+    resultArray.push(x-1);
+    if ( (x-1) === (y+1) ){
+      return resultArray;
+    }
+    return resultArray.concat(range(x-1, y));
+  }
+  if ( y > x ){
+    resultArray.push(x+1);
+    if ( (x+1) === (y-1) ){
+      return resultArray;
+    }
+    return resultArray.concat(range(x+1, y));
+  }
 };
+
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
